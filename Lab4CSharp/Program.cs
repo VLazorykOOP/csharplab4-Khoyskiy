@@ -1,42 +1,27 @@
-﻿// See https://aka.ms/new-console-template for more information
-/// <summary>
-///  Top-level statements 
-///  Код програми (оператори)  вищого рівня
-/// </summary>
-///
+﻿using Lab4CSharp;
+
 Console.WriteLine("Lab4 C# ");
-AnyFunc();
+Romb romb = new Romb(4, 4*Math.Sqrt(2), "Red");
 
-/// <summary>
-/// 
-///  Top-level statements must precede namespace and type declarations.
-/// At the top-level methods/functions can be defined and used
-/// На верхньому рівні можна визначати та використовувати методи/функції
-/// </summary>
-void AnyFunc()
-{
-    Console.WriteLine(" Some function in top-level");
-}
-Console.WriteLine("Problems 1 ");
-AnyFunc();
-//  приклад класів
-UserClass cl = new UserClass();
-cl.Name = " UserClass top-level ";
-Lab4CSharp.UserClass cl2 = new Lab4CSharp.UserClass();
-cl2.Name = " UserClass namespace Lab4CSharp ";
-Console.WriteLine(cl + "   " + cl2 + "   ");
+Console.WriteLine(romb[0]); 
+Console.WriteLine(romb[1]); 
+Console.WriteLine(romb[2]); 
+++romb;
+Console.WriteLine($"After ++: {romb}");
 
+//--romb;
+Console.WriteLine($"After --: {romb}");
 
+// Перевантаження true і false
+Console.WriteLine(romb ? "Is Square" : "Is not Square");
 
-/// <summary>
-/// 
-/// Top-level statements must precede namespace and type declarations.
-/// Оператори верхнього рівня мають передувати оголошенням простору імен і типу.
-/// Створення класу(ів) або оголошенням простору імен є закіченням  іструкцій верхнього рівня
-/// 
-/// </summary>
+// Перевантаження оператору *
+romb = romb * 2;
+Console.WriteLine($"After * 2: {romb}");
 
-class UserClass
-{
-    public string Name { get; set; }
-};
+// Перетворення типу Romb в string і навпаки
+string rombString = romb;
+Console.WriteLine($"Romb as string: {rombString}");
+
+Romb newRomb = rombString;
+Console.WriteLine($"String as Romb: {newRomb}");
