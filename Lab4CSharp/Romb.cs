@@ -100,17 +100,20 @@ namespace Lab4CSharp
         {
             return diagonale2;
         }
-
+         public override string ToString()
+    {
+        return $"Romb: side={this.side}; diagonale1={this.diagonale1}; diagonale2={this.diagonale2}; color={this.color}";
+    }
         public static implicit operator string(Romb romb)
         {
-            return $"Romb: side={romb.Side}, diagonale1={romb.Diagonale1}, diagonale2={romb.Diagonale2}, color={romb.Color}";
+            return $"Romb: side={romb.Side}; diagonale1={romb.Diagonale1}; diagonale2={romb.Diagonale2}; color={romb.Color}";
         }
         public static implicit operator Romb(string s)
         {
-            string[] parts = s.Split(',');
-            double a = Convert.ToDouble(parts[0].Split(':')[1].Trim());
-            double d1 = Convert.ToDouble(parts[1].Split(':')[1].Trim());
-            string color = parts[3].Split(':')[1].Trim();
+            string[] parts = s.Split(';');
+            double a = Convert.ToDouble(parts[0].Split('=')[1].Trim());
+            double d1 = Convert.ToDouble(parts[1].Split('=')[1].Trim());
+            string color = parts[3].Split('=')[1].Trim();
             return new Romb(a, d1, color);
         }
 
