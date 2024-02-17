@@ -27,3 +27,4 @@ Console.WriteLine($"Romb as string: {rombString}");
 Romb newRomb = rombString;
 Console.WriteLine($"String as Romb: {newRomb}");
 Console.ReadLine();
+
